@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://default_env.tres" type="Environment" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Gun.tscn" type="PackedScene" id=5]
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.929412, 0.929412, 0.929412, 1 )
+metallic = 0.6
+depth_enabled = true
+depth_scale = 0.05
+depth_deep_parallax = false
+depth_flip_tangent = false
+depth_flip_binormal = false
+
+[sub_resource type="CubeMesh" id=1]
+material = SubResource( 4 )
+size = Vector3( 50, 2, 50 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.517647, 0.768627, 0.290196, 1 )
+roughness = 0.28
+rim_enabled = true
+rim = 1.0
+rim_tint = 0.5
+refraction_enabled = true
+refraction_scale = 0.05
+refraction_texture_channel = 0
+
+[node name="World" type="Spatial"]
+
+[node name="Ground" type="CSGMesh" parent="."]
+use_collision = true
+mesh = SubResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.999904, -0.010464, 0.0091367, -0.00420483, 0.39888, 0.916994, -0.0132398, -0.916944, 0.398797, 1.27847, 32.0103, 15.8713 )
+
+[node name="Obstacles" type="Spatial" parent="."]
+
+[node name="CSGBox" type="CSGBox" parent="Obstacles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0495701, 3.26955, -14.2162 )
+use_collision = true
+width = 4.38954
+height = 5.61664
+depth = 4.57849
+material = SubResource( 5 )
+
+[node name="CSGBox2" type="CSGBox" parent="Obstacles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.229, 3.26955, -6.0377 )
+use_collision = true
+width = 4.38954
+height = 5.61664
+depth = 4.57849
+material = SubResource( 5 )
+
+[node name="CSGBox4" type="CSGBox" parent="Obstacles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7219, 3.26955, -6.0377 )
+use_collision = true
+width = 4.38954
+height = 12.2499
+depth = 4.57849
+material = SubResource( 5 )
+
+[node name="CSGBox3" type="CSGBox" parent="Obstacles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.82258, 3.26955, 6.49318 )
+use_collision = true
+width = 4.38954
+height = 5.61664
+depth = 4.57849
+material = SubResource( 5 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.973845, 0, 0.227212, 0, 1, 0, -0.227212, 0, 0.973845, -0.868334, 2.54, 16.3519 )
+camera = NodePath("../Camera")
+speed = 25.0
+rotation_speed_factor = 10.0
+accel = 3.0
+deaccel = 2.0
+
+[node name="Gun" parent="Player" instance=ExtResource( 5 )]
+timeBetweenShots = 0.161
+projectileSpeed = 50.0
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.81823, 0.574891, 0, -0.574891, -0.81823, 0, 24.45, 17.2692 )
+light_color = Color( 0.776471, 0.768627, 0.921569, 1 )
+light_energy = 1.69
+light_indirect_energy = 2.2
+light_specular = 0.12
+shadow_enabled = true
+
+[node name="Enemy" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91348, 0 )

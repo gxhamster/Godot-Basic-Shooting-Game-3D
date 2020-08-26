@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Gun.gd" type="Script" id=2]
+[ext_resource path="res://assets/Materials/gun_material.tres" type="Material" id=3]
+
+[node name="Gun" type="Spatial"]
+transform = Transform( 0.998605, 0.00124199, 0.0528428, -0.000585659, 0.999923, -0.0124342, -0.0528541, 0.0123858, 0.998528, 0.119661, -0.195339, -2.14906 )
+script = ExtResource( 2 )
+projectile = ExtResource( 1 )
+timeBetweenShots = 0.054
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 4.76837e-07, 0.676628, -0.311852 )
+width = 0.314301
+height = 0.294692
+depth = 1.554
+material = ExtResource( 3 )
+
+[node name="CSGBox2" type="CSGBox" parent="."]
+transform = Transform( 1, 1.77636e-14, -3.55271e-15, 0, -0.615469, 0.788161, -3.55271e-15, -0.788161, -0.615469, 6.55651e-07, 0.366975, 0.417224 )
+width = 0.30916
+height = 0.294692
+depth = 0.74126
+material = ExtResource( 3 )
+
+[node name="CSGBox3" type="CSGBox" parent="."]
+transform = Transform( 1, 0, -2.22045e-16, 0, -0.0287766, 0.999586, -3.55271e-15, -0.999586, -0.0287766, -0.00189638, 0.408693, -0.483628 )
+width = 0.187179
+height = 0.294692
+depth = 0.74126
+material = ExtResource( 3 )
+
+[node name="Muzzle" type="Position3D" parent="."]
+transform = Transform( 1, -5.82077e-09, -3.27826e-07, 0, 1, 9.31323e-09, 2.98023e-08, 1.21072e-08, 1, 9.53674e-07, 0.58676, -1.06197 )
+
+[node name="TimeBetweenShots" type="Timer" parent="."]
+one_shot = true

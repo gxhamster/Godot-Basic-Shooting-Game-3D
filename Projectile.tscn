@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/Materials/gun_material.tres" type="Material" id=1]
+[ext_resource path="res://Projectile.gd" type="Script" id=2]
+
+[node name="Projectile" type="Area"]
+transform = Transform( 1, 0.000153481, -0.000102441, -0.000153481, 1, 5.29914e-05, 0.000102441, -5.29914e-05, 1, 0, 0, 0 )
+script = ExtResource( 2 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+width = 0.237291
+height = 0.223308
+depth = 0.22605
+material = ExtResource( 1 )
