@@ -15,8 +15,12 @@ points = PoolVector3Array( 0, 0, 1.5, 0, 0, 1.5, 0, 0, 1.5, 0, 0, 1.5, 0, 0, 1.5
 albedo_color = Color( 0.690196, 0.180392, 0.780392, 1 )
 
 [node name="Enemy" type="KinematicBody"]
+collision_layer = 4
 script = ExtResource( 1 )
-lookRayLength = 5.0
+speed = null
+rotation_speed_factor = null
+accel = null
+deaccel = null
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
@@ -33,8 +37,3 @@ material_override = SubResource( 4 )
 width = 1.31076
 height = 0.257054
 depth = 0.967906
-
-[node name="DetectRay" type="RayCast" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.583467, -1.65287 )
-enabled = true
-cast_to = Vector3( 0, 0, -1 )

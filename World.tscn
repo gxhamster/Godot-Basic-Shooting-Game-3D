@@ -5,21 +5,21 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Gun.tscn" type="PackedScene" id=5]
 
-[sub_resource type="SpatialMaterial" id=4]
-albedo_color = Color( 0.929412, 0.929412, 0.929412, 1 )
-metallic = 0.6
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.235294, 0.207843, 0.207843, 1 )
+metallic = 0.5
 depth_enabled = true
 depth_scale = 0.05
 depth_deep_parallax = false
 depth_flip_tangent = false
 depth_flip_binormal = false
 
-[sub_resource type="CubeMesh" id=1]
-material = SubResource( 4 )
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
 size = Vector3( 50, 2, 50 )
 
-[sub_resource type="SpatialMaterial" id=5]
-albedo_color = Color( 0.517647, 0.768627, 0.290196, 1 )
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.290196, 0.768627, 0.498039, 1 )
 roughness = 0.28
 rim_enabled = true
 rim = 1.0
@@ -32,10 +32,12 @@ refraction_texture_channel = 0
 
 [node name="Ground" type="CSGMesh" parent="."]
 use_collision = true
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.999904, -0.010464, 0.0091367, -0.00420483, 0.39888, 0.916994, -0.0132398, -0.916944, 0.398797, 1.27847, 32.0103, 15.8713 )
+transform = Transform( 0.999985, 0.00297015, 0.00470938, -0.00481971, 0.0383036, 0.999255, 0.00278755, -0.999262, 0.0383173, 0.247934, 33.5785, 3.80956 )
+fov = 66.021
+size = 44.6552
 
 [node name="Obstacles" type="Spatial" parent="."]
 
@@ -45,7 +47,7 @@ use_collision = true
 width = 4.38954
 height = 5.61664
 depth = 4.57849
-material = SubResource( 5 )
+material = SubResource( 3 )
 
 [node name="CSGBox2" type="CSGBox" parent="Obstacles"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.229, 3.26955, -6.0377 )
@@ -53,7 +55,7 @@ use_collision = true
 width = 4.38954
 height = 5.61664
 depth = 4.57849
-material = SubResource( 5 )
+material = SubResource( 3 )
 
 [node name="CSGBox4" type="CSGBox" parent="Obstacles"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7219, 3.26955, -6.0377 )
@@ -61,7 +63,7 @@ use_collision = true
 width = 4.38954
 height = 12.2499
 depth = 4.57849
-material = SubResource( 5 )
+material = SubResource( 3 )
 
 [node name="CSGBox3" type="CSGBox" parent="Obstacles"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.82258, 3.26955, 6.49318 )
@@ -69,7 +71,55 @@ use_collision = true
 width = 4.38954
 height = 5.61664
 depth = 4.57849
-material = SubResource( 5 )
+material = SubResource( 3 )
+
+[node name="CSGBox5" type="CSGBox" parent="Obstacles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.82258, 3.26955, 24.4863 )
+use_collision = true
+width = 4.38954
+height = 5.61664
+depth = 4.57849
+material = SubResource( 3 )
+
+[node name="CSGBox6" type="CSGBox" parent="Obstacles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.209514, 3.26955, 24.4863 )
+use_collision = true
+width = 4.38954
+height = 5.61664
+depth = 4.57849
+material = SubResource( 3 )
+
+[node name="CSGBox7" type="CSGBox" parent="Obstacles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.015, 3.26955, 24.4863 )
+use_collision = true
+width = 4.38954
+height = 5.61664
+depth = 4.57849
+material = SubResource( 3 )
+
+[node name="CSGBox8" type="CSGBox" parent="Obstacles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1886, 3.26955, 24.4863 )
+use_collision = true
+width = 4.38954
+height = 5.61664
+depth = 4.57849
+material = SubResource( 3 )
+
+[node name="CSGBox9" type="CSGBox" parent="Obstacles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7885, 3.26955, 11.6664 )
+use_collision = true
+width = 4.38954
+height = 5.61664
+depth = 4.57849
+material = SubResource( 3 )
+
+[node name="CSGBox10" type="CSGBox" parent="Obstacles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8694, 3.26955, 2.15396 )
+use_collision = true
+width = 4.38954
+height = 5.61664
+depth = 4.57849
+material = SubResource( 3 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 3 )
@@ -95,4 +145,9 @@ light_specular = 0.12
 shadow_enabled = true
 
 [node name="Enemy" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91348, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.50432, 0 )
+speed = 10.0
+rotation_speed_factor = 3.0
+accel = 4.0
+deaccel = 4.5
+detectRadius = 20.0
