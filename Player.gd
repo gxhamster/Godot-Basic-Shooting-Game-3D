@@ -1,4 +1,5 @@
 extends KinematicBody
+class_name Player
 
 export(NodePath) var camera
 
@@ -6,13 +7,13 @@ const FLOOR_NORMAL := Vector3.UP
 
 export var speed := 30.0
 export var rotation_speed_factor := 3.0
-export var accel := 4.0
-export var deaccel = 4.5
+export var accel := 4.5
+export var deaccel = 4.3
 
 var velocity := Vector3()
 var mousePointIn3D: Vector3
 
-onready var Gun := $Gun
+onready var Gun := $Rifle
 
 func _ready() -> void:
 	camera = get_node(camera)
@@ -32,6 +33,7 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.linear_interpolate(Vector3(), deaccel * delta)
 	velocity = move_and_slide(velocity)
 
+
 # Player directional Input
 func get_input_direction() -> Vector3:
 	var _direction = Vector3()
@@ -42,6 +44,7 @@ func get_input_direction() -> Vector3:
 	
 	_direction = _direction.normalized()
 	return _direction
+
 
 # Rotate the player 
 func rotate_player(delta: float) -> void:
