@@ -226,6 +226,97 @@ material/0 = null
 transform = Transform( 1.72953, 0, 0, 0, 3.24571, 0, 0, 0, 1.62065, 0, 2.02754, 0 )
 shape = SubResource( 4 )
 
+[node name="StaticBody14" type="StaticBody" parent="Nav/NavigationMeshInstance/Obstacles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9846, 0.810658, -6.02202 )
+collision_mask = 6
+
+[node name="MeshInstance" type="MeshInstance" parent="Nav/NavigationMeshInstance/Obstacles/StaticBody14"]
+transform = Transform( 1.72953, 0, 0, 0, 3.24571, 0, 0, 0, 1.62065, 0, 2.02754, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Nav/NavigationMeshInstance/Obstacles/StaticBody14"]
+transform = Transform( 1.72953, 0, 0, 0, 3.24571, 0, 0, 0, 1.62065, 0, 2.02754, 0 )
+shape = SubResource( 4 )
+
+[node name="StaticBody15" type="StaticBody" parent="Nav/NavigationMeshInstance/Obstacles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.592762, 0.810658, -6.02202 )
+collision_mask = 6
+
+[node name="MeshInstance" type="MeshInstance" parent="Nav/NavigationMeshInstance/Obstacles/StaticBody15"]
+transform = Transform( 1.72953, 0, 0, 0, 3.24571, 0, 0, 0, 1.62065, 0, 2.02754, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Nav/NavigationMeshInstance/Obstacles/StaticBody15"]
+transform = Transform( 1.72953, 0, 0, 0, 3.24571, 0, 0, 0, 1.62065, 0, 2.02754, 0 )
+shape = SubResource( 4 )
+
+[node name="StaticBody16" type="StaticBody" parent="Nav/NavigationMeshInstance/Obstacles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.46931, 0.810658, -18.8233 )
+collision_mask = 6
+
+[node name="MeshInstance" type="MeshInstance" parent="Nav/NavigationMeshInstance/Obstacles/StaticBody16"]
+transform = Transform( 1.72953, 0, 0, 0, 3.24571, 0, 0, 0, 1.62065, 0, 2.02754, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Nav/NavigationMeshInstance/Obstacles/StaticBody16"]
+transform = Transform( 1.72953, 0, 0, 0, 3.24571, 0, 0, 0, 1.62065, 0, 2.02754, 0 )
+shape = SubResource( 4 )
+
+[node name="StaticBody17" type="StaticBody" parent="Nav/NavigationMeshInstance/Obstacles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.25355, 0.810658, 8.81477 )
+collision_mask = 6
+
+[node name="MeshInstance" type="MeshInstance" parent="Nav/NavigationMeshInstance/Obstacles/StaticBody17"]
+transform = Transform( 1.72953, 0, 0, 0, 3.24571, 0, 0, 0, 1.62065, 0, 2.02754, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Nav/NavigationMeshInstance/Obstacles/StaticBody17"]
+transform = Transform( 1.72953, 0, 0, 0, 3.24571, 0, 0, 0, 1.62065, 0, 2.02754, 0 )
+shape = SubResource( 4 )
+
+[node name="StaticBody18" type="StaticBody" parent="Nav/NavigationMeshInstance/Obstacles"]
+transform = Transform( 1, 0, 0, 0, 1.9824, 0, 0, 0, 1, -0.927198, 1.45131, 20.379 )
+collision_mask = 6
+
+[node name="MeshInstance" type="MeshInstance" parent="Nav/NavigationMeshInstance/Obstacles/StaticBody18"]
+transform = Transform( 1.72953, 0, 0, 0, 3.24571, 0, 0, 0, 1.62065, 0, 2.02754, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Nav/NavigationMeshInstance/Obstacles/StaticBody18"]
+transform = Transform( 1.72953, 0, 0, 0, 3.24571, 0, 0, 0, 1.62065, 0, 2.02754, 0 )
+shape = SubResource( 4 )
+
+[node name="StaticBody19" type="StaticBody" parent="Nav/NavigationMeshInstance/Obstacles"]
+transform = Transform( 1, 0, 0, 0, 1.9824, 0, 0, 0, 1, -18.4439, -2.28859, 20.379 )
+collision_mask = 6
+
+[node name="MeshInstance" type="MeshInstance" parent="Nav/NavigationMeshInstance/Obstacles/StaticBody19"]
+transform = Transform( 1.72953, 0, 0, 0, 3.24571, 0, 0, 0, 1.62065, 0, 2.02754, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Nav/NavigationMeshInstance/Obstacles/StaticBody19"]
+transform = Transform( 1.72953, 0, 0, 0, 3.24571, 0, 0, 0, 1.62065, 0, 2.02754, 0 )
+shape = SubResource( 4 )
+
+[node name="StaticBody20" type="StaticBody" parent="Nav/NavigationMeshInstance/Obstacles"]
+transform = Transform( 1, 0, 0, 0, 1.9824, 0, 0, 0, 1, -15.8129, -2.28859, -4.05228 )
+collision_mask = 6
+
+[node name="MeshInstance" type="MeshInstance" parent="Nav/NavigationMeshInstance/Obstacles/StaticBody20"]
+transform = Transform( 1.72953, 0, 0, 0, 3.24571, 0, 0, 0, 1.62065, 0, 2.02754, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Nav/NavigationMeshInstance/Obstacles/StaticBody20"]
+transform = Transform( 1.72953, 0, 0, 0, 3.24571, 0, 0, 0, 1.62065, 0, 2.02754, 0 )
+shape = SubResource( 4 )
+
 [node name="Ground" type="CSGMesh" parent="Nav/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.124624, -0.057064, -0.105507 )
 use_collision = true
@@ -292,16 +383,16 @@ spawn_rate = 3
 enemy_scene = ExtResource( 1 )
 
 [node name="SpawnPosition" type="Position3D" parent="EnemySpawnController"]
-transform = Transform( 0.931139, 0, -0.364666, 0, 1, 0, 0.364666, 0, 0.931139, -4.90359, 1.69575, 6.94297 )
+transform = Transform( 0.931139, 0, -0.364666, 0, 1, 0, 0.364666, 0, 0.931139, -4.01941, 1.69575, 4.68529 )
 
 [node name="SpawnPosition2" type="Position3D" parent="EnemySpawnController"]
-transform = Transform( 0.892955, 0, 0.450145, 0, 1, 0, -0.450145, 0, 0.892955, 12.106, 2.56919, 9.18681 )
+transform = Transform( 0.892955, 0, 0.450145, 0, 1, 0, -0.450145, 0, 0.892955, 8.59754, 2.56919, 9.87501 )
 
 [node name="SpawnPosition3" type="Position3D" parent="EnemySpawnController"]
-transform = Transform( -0.432778, 0, -0.9015, 0, 1, 0, 0.9015, 0, -0.432778, -14.348, 2.56919, 18.2285 )
+transform = Transform( -0.432778, 0, -0.9015, 0, 1, 0, 0.9015, 0, -0.432778, -13.4464, 2.56919, 18.6613 )
 
 [node name="SpawnPosition4" type="Position3D" parent="EnemySpawnController"]
-transform = Transform( 0.473827, 0, 0.880618, 0, 1, 0, -0.880618, 0, 0.473827, -13.8578, 2.56919, -8.35987 )
+transform = Transform( 0.473827, 0, 0.880618, 0, 1, 0, -0.880618, 0, 0.473827, -13.1823, 2.5646, -9.32895 )
 
 [node name="SpawnTimer" type="Timer" parent="EnemySpawnController"]
 [connection signal="timeout" from="EnemySpawnController/SpawnTimer" to="EnemySpawnController" method="_on_SpawnTimer_timeout"]

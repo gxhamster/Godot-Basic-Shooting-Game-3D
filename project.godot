@@ -39,8 +39,10 @@ _global_script_class_icons={
 [application]
 
 config/name="Shooting Game Blocks But 3d"
+config/description="My 3D game. Only for real gamers. 
+Btw this is me trying to learn 3D"
 run/main_scene="res://World.tscn"
-config/icon="res://icon.png"
+config/icon="res://game_icon.png"
 
 [input]
 
