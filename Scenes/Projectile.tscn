@@ -2,7 +2,6 @@
 
 [ext_resource path="res://Scripts/Projectile.gd" type="Script" id=2]
 
-
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.0352941, 0.00784314, 0.00784314, 1 )
 
@@ -12,7 +11,7 @@ extents = Vector3( 0.121434, 0.120553, 0.121727 )
 [node name="Projectile" type="Area"]
 transform = Transform( 1, 0.000153481, -0.000102441, -0.000153481, 1, 5.29914e-05, 0.000102441, -5.29914e-05, 1, 0, 0, 0 )
 collision_layer = 8
-collision_mask = 22
+collision_mask = 23
 script = ExtResource( 2 )
 
 [node name="CSGBox" type="CSGBox" parent="."]
@@ -24,3 +23,4 @@ material = SubResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 2 )
+[connection signal="body_entered" from="." to="." method="_on_Projectile_body_entered"]

@@ -149,4 +149,4 @@ func _health_changed(value: float) -> void:
 func _on_ProjectileDetector_area_entered(area: Area) -> void:
 	print(health)
 	if area is Projectile:
-		self.health -= 100
+		self.health -= area.damage

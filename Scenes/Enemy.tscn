@@ -2,7 +2,6 @@
 
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=1]
 
-
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 1, 0.219608, 0.219608, 1 )
 
