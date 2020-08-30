@@ -1,6 +1,8 @@
 [gd_resource type="Environment" load_steps=2 format=2]
 
 [sub_resource type="ProceduralSky" id=1]
+sky_energy = 0.0
+ground_energy = 0.0
 sun_energy = 0.0
 
 [resource]

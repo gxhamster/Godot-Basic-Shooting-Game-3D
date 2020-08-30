@@ -45,7 +45,7 @@ depth = 0.967906
 
 [node name="SpotLight" type="SpotLight" parent="."]
 transform = Transform( 0.9982, -0.00824834, -0.0593994, 0.0277468, 0.941622, 0.335526, 0.0531642, -0.33657, 0.940156, 0.153863, 2.53836, -0.601358 )
-light_energy = 7.23
+light_energy = 1.9
 light_indirect_energy = 0.0
 shadow_bias = 16.0
 spot_range = 15.004

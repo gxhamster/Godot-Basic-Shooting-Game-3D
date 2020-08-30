@@ -17,7 +17,8 @@ region/min_size = 0.0
 edge/max_length = 0.0
 
 [sub_resource type="SpatialMaterial" id=2]
-albedo_color = Color( 0.760784, 0.231373, 0.231373, 1 )
+albedo_color = Color( 0.341176, 0.709804, 0.545098, 1 )
+roughness = 0.59
 
 [sub_resource type="CubeMesh" id=3]
 material = SubResource( 2 )
@@ -28,7 +29,7 @@ points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1,
 [sub_resource type="SpatialMaterial" id=5]
 albedo_color = Color( 1, 0.968627, 0.968627, 1 )
 emission_enabled = true
-emission = Color( 0, 0, 0, 1 )
+emission = Color( 0.0117647, 0.141176, 0.133333, 1 )
 emission_energy = 6.33
 emission_operator = 0
 emission_on_uv2 = false
@@ -60,6 +61,14 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Nav/NavigationMeshInstance/Obstacles/StaticBody"]
 transform = Transform( 1.72953, 0, 0, 0, 3.24571, 0, 0, 0, 1.62065, 0, 2.02754, 0 )
 shape = SubResource( 4 )
+
+[node name="OmniLight" type="OmniLight" parent="Nav/NavigationMeshInstance/Obstacles/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.528139, 12.7735, -3.72432 )
+light_color = Color( 0.4, 0.94902, 0.6, 1 )
+light_energy = 0.82
+light_specular = 0.91
+omni_range = 26.2493
+omni_attenuation = 0.615572
 
 [node name="StaticBody2" type="StaticBody" parent="Nav/NavigationMeshInstance/Obstacles"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6922, -0.975235, 13.3634 )
@@ -222,24 +231,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.124624, -0.057064, -0.105507
 use_collision = true
 mesh = SubResource( 6 )
 
-[node name="Enemy" parent="Nav" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15157, 2.55922, 5.10483 )
-camera = NodePath("../../Camera")
-speed = 15.0
-detectRadius = 20.0
-
-[node name="Enemy2" parent="Nav" instance=ExtResource( 1 )]
-transform = Transform( -0.152986, 0, -0.988228, 0, 1, 0, 0.988228, 0, -0.152986, -11.8845, 2.71436, -20.3122 )
-camera = NodePath("../../Camera")
-speed = 15.0
-detectRadius = 20.0
-
-[node name="Enemy3" parent="Nav" instance=ExtResource( 1 )]
-transform = Transform( -0.152986, 0, -0.988228, 0, 1, 0, 0.988228, 0, -0.152986, 18.2035, 2.71436, -15.6543 )
-camera = NodePath("../../Camera")
-speed = 15.0
-detectRadius = 20.0
-
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.999985, 0.00380191, 0.00406762, -0.00481971, 0.225326, 0.974272, 0.00278755, -0.974276, 0.225341, 0.253175, 38.8685, 11.0758 )
 fov = 66.021
@@ -301,13 +292,16 @@ spawn_rate = 3
 enemy_scene = ExtResource( 1 )
 
 [node name="SpawnPosition" type="Position3D" parent="EnemySpawnController"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.90359, 1.69575, 6.94297 )
+transform = Transform( 0.931139, 0, -0.364666, 0, 1, 0, 0.364666, 0, 0.931139, -4.90359, 1.69575, 6.94297 )
 
 [node name="SpawnPosition2" type="Position3D" parent="EnemySpawnController"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.106, 2.56919, 9.18681 )
+transform = Transform( 0.892955, 0, 0.450145, 0, 1, 0, -0.450145, 0, 0.892955, 12.106, 2.56919, 9.18681 )
 
 [node name="SpawnPosition3" type="Position3D" parent="EnemySpawnController"]
-transform = Transform( 0.590817, 0, -0.806806, 0, 1, 0, 0.806806, 0, 0.590817, -14.348, 2.56919, 18.2285 )
+transform = Transform( -0.432778, 0, -0.9015, 0, 1, 0, 0.9015, 0, -0.432778, -14.348, 2.56919, 18.2285 )
+
+[node name="SpawnPosition4" type="Position3D" parent="EnemySpawnController"]
+transform = Transform( 0.473827, 0, 0.880618, 0, 1, 0, -0.880618, 0, 0.473827, -13.8578, 2.56919, -8.35987 )
 
 [node name="SpawnTimer" type="Timer" parent="EnemySpawnController"]
 [connection signal="timeout" from="EnemySpawnController/SpawnTimer" to="EnemySpawnController" method="_on_SpawnTimer_timeout"]

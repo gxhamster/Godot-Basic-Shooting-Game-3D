@@ -20,6 +20,7 @@ var path := []
 var path_index := 0
 
 var mousePointIn3D : Vector3
+var detected_color := Color(231, 34, 34)
 
 onready var debug := $Debug
 onready var spotLight := $SpotLight
@@ -54,7 +55,10 @@ func canSeePlayer(playerTransform: Transform) -> bool:
 		var space := get_world().get_direct_space_state()
 		var result := space.intersect_ray(global_transform.origin, rayCastPos.origin, [self], collision_mask)
 		if result.collider is Player:
+			spotLight.light_color = Color.red
 			return true
+		else:
+			spotLight.light_color = Color.white
 		
 	return false
 		
