@@ -12,22 +12,22 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "DebugDraw",
 "language": "GDScript",
-"path": "res://DebugDraw.gd"
+"path": "res://Scripts/DebugDraw.gd"
 }, {
 "base": "KinematicBody",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://Enemy.gd"
+"path": "res://Scripts/Enemy.gd"
 }, {
 "base": "KinematicBody",
 "class": "Player",
 "language": "GDScript",
-"path": "res://Player.gd"
+"path": "res://Scripts/Player.gd"
 }, {
 "base": "Area",
 "class": "Projectile",
 "language": "GDScript",
-"path": "res://Projectile.gd"
+"path": "res://Scripts/Projectile.gd"
 } ]
 _global_script_class_icons={
 "DebugDraw": "",

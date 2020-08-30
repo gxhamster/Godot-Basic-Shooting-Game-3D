@@ -28,7 +28,7 @@ onready var nav := get_parent()
 onready var object_detect_ray := $ObjectDetect
 onready var projectile_detector := $ProjectileDetector
 
-var blood_particle := preload("res://BloodParticle.tscn")
+var blood_particle := preload("res://Scenes/BloodParticle.tscn")
 
 func _ready() -> void:
 	camera = get_node(camera)
