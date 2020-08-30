@@ -11,6 +11,7 @@ export var rotation_speed_factor := 3.0
 export var accel := 4.0
 export var deaccel := 3.5
 export var detectRadius := 10.0
+export var viewAngle = 60.0
 
 var velocity := Vector3()
 var path := []
@@ -19,10 +20,12 @@ var path_index := 0
 var mousePointIn3D : Vector3
 
 onready var debug := $Debug
+onready var spotLight := $SpotLight
 onready var nav := get_parent()
 
 func _ready() -> void:
 	camera = get_node(camera)
+	spotLight.spot_angle = viewAngle
 
 func _physics_process(delta: float) -> void:
 #	Player transform
@@ -38,9 +41,9 @@ func canSeePlayer(playerTransform: Transform) -> bool:
 	var playerToEnemy : Vector3 = (playerTransform.origin - transform.origin).normalized() 	
 	var playerToEnemyDist : float = playerTransform.origin.distance_to(transform.origin)
 	var rayCastPos : Transform = get_tree().get_nodes_in_group('player')[0].global_transform
-	
+		
 #	Enemy view radius 
-	if enemyFoward.dot(playerToEnemy) > 0 and playerToEnemyDist < detectRadius:
+	if enemyFoward.angle_to(playerToEnemy) < deg2rad(viewAngle) and playerToEnemyDist < detectRadius:
 #		Cast a ray to see if any obstacle is blocking the view from the player
 		var space := get_world().get_direct_space_state()
 		var result := space.intersect_ray(global_transform.origin, rayCastPos.origin, [self], collision_mask)
