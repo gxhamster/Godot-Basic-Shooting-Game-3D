@@ -13,7 +13,7 @@ export var deaccel = 4.3
 var velocity := Vector3()
 var mousePointIn3D: Vector3
 
-onready var Gun := $Rifle
+onready var Gun := $Gun
 
 func _ready() -> void:
 	camera = get_node(camera)

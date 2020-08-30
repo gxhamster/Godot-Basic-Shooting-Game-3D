@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Enemy.gd" type="Script" id=1]
 
@@ -16,10 +16,14 @@ points = PoolVector3Array( 0, 0, 1.9, 0, 0, 1.9, 0, 0, 1.9, 0, 0, 1.9, 0, 0, 1.9
 [sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.690196, 0.180392, 0.780392, 1 )
 
+[sub_resource type="CapsuleShape" id=5]
+radius = 0.899038
+height = 1.995
+
 [node name="Enemy" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.252442, 0 )
 collision_layer = 4
-collision_mask = 3
+collision_mask = 11
 script = ExtResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
@@ -40,7 +44,7 @@ depth = 0.967906
 
 [node name="SpotLight" type="SpotLight" parent="."]
 transform = Transform( 0.9982, -0.00824834, -0.0593994, 0.0277468, 0.941622, 0.335526, 0.0531642, -0.33657, 0.940156, 0.153863, 2.53836, -0.601358 )
-light_energy = 10.67
+light_energy = 7.23
 light_indirect_energy = 0.0
 shadow_bias = 16.0
 spot_range = 15.004
@@ -53,3 +57,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88375, 0 )
 enabled = true
 cast_to = Vector3( 0, 0, -4.794 )
 collision_mask = 5
+
+[node name="ProjectileDetector" type="Area" parent="."]
+collision_layer = 16
+collision_mask = 10
+
+[node name="CollisionShape" type="CollisionShape" parent="ProjectileDetector"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0 )
+shape = SubResource( 5 )
+[connection signal="area_entered" from="ProjectileDetector" to="." method="_on_ProjectileDetector_area_entered"]

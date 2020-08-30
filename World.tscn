@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Rifle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Gun.tscn" type="PackedScene" id=2]
 [ext_resource path="res://default_env.tres" type="Environment" id=3]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
 
@@ -16,7 +16,7 @@ region/min_size = 0.0
 edge/max_length = 0.0
 
 [sub_resource type="SpatialMaterial" id=2]
-albedo_color = Color( 0.454902, 0.866667, 0.45098, 1 )
+albedo_color = Color( 0.760784, 0.231373, 0.231373, 1 )
 
 [sub_resource type="CubeMesh" id=3]
 material = SubResource( 2 )
@@ -25,7 +25,7 @@ material = SubResource( 2 )
 points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
 
 [sub_resource type="SpatialMaterial" id=5]
-albedo_color = Color( 0.0745098, 0.0627451, 0.0627451, 1 )
+albedo_color = Color( 0.823529, 0.811765, 0.811765, 1 )
 emission_enabled = true
 emission = Color( 0, 0, 0, 1 )
 emission_energy = 6.33
@@ -217,7 +217,7 @@ transform = Transform( 1.72953, 0, 0, 0, 3.24571, 0, 0, 0, 1.62065, 0, 2.02754, 
 shape = SubResource( 4 )
 
 [node name="Ground" type="CSGMesh" parent="Nav/NavigationMeshInstance"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0141525, 0.0255051, -0.0576668 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.124624, -0.057064, -0.105507 )
 use_collision = true
 mesh = SubResource( 6 )
 
@@ -240,7 +240,7 @@ speed = 15.0
 detectRadius = 20.0
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.999985, 0.00453817, 0.00322568, -0.00481971, 0.415501, 0.90958, 0.00278755, -0.909581, 0.415517, 0.208749, 35.9314, 21.9346 )
+transform = Transform( 0.999985, 0.00380191, 0.00406762, -0.00481971, 0.225326, 0.974272, 0.00278755, -0.974276, 0.225341, 0.253175, 38.8685, 11.0758 )
 fov = 66.021
 size = 44.6552
 
@@ -255,8 +255,10 @@ rotation_speed_factor = 10.0
 accel = 3.0
 deaccel = 2.0
 
-[node name="Rifle" parent="Player" instance=ExtResource( 2 )]
-transform = Transform( 0.998605, 0.00124199, 0.0528428, -0.000585659, 0.999923, -0.0124342, -0.0528541, 0.0123858, 0.998528, 0.0896993, -0.188289, -2.71522 )
+[node name="Gun" parent="Player" instance=ExtResource( 2 )]
+transform = Transform( 0.984496, -0.0016047, -0.175417, -0.000585659, 0.999923, -0.0124342, 0.175423, 0.0123441, 0.984419, 0.352891, 0.0250142, -1.98038 )
+timeBetweenShots = 0.355
+projectileSpeed = 100.0
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.81823, 0.574891, 0, -0.574891, -0.81823, 0, 24.45, 17.2692 )

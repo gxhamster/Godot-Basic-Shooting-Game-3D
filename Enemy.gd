@@ -13,6 +13,7 @@ export var deaccel := 3.5
 export var detectRadius := 10.0
 export var viewAngle = 60.0
 export var on_collision_force := 2.5
+export var health := 50.0 setget _health_changed
 
 var velocity := Vector3()
 var path := []
@@ -24,6 +25,9 @@ onready var debug := $Debug
 onready var spotLight := $SpotLight
 onready var nav := get_parent()
 onready var object_detect_ray := $ObjectDetect
+onready var projectile_detector := $ProjectileDetector
+
+var blood_particle := preload("res://BloodParticle.tscn")
 
 func _ready() -> void:
 	camera = get_node(camera)
@@ -122,3 +126,23 @@ func steer_away() -> Vector3:
 #		var heightCorrectedPoint = Vector3(point.x, transform.origin.y, point.z)
 #		mousePointIn3D = heightCorrectedPoint
 #		get_nav(mousePointIn3D)
+
+func die() -> void:
+	var blood_particle_ins = blood_particle.instance()
+	var root_node = get_tree().get_root()
+	root_node.add_child(blood_particle_ins)
+	blood_particle_ins.global_transform.origin = transform.origin
+	blood_particle_ins.emitting = true
+#	yield(get_tree().create_timer(1.9), "timeout")
+	queue_free()
+
+func _health_changed(value: float) -> void:
+	health = value
+	if health <= 0:
+		die()
+
+
+func _on_ProjectileDetector_area_entered(area: Area) -> void:
+	print(health)
+	if area is Projectile:
+		self.health -= 100
