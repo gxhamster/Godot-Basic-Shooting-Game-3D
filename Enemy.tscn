@@ -25,6 +25,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.252442, 0 )
 collision_layer = 4
 collision_mask = 11
 script = ExtResource( 1 )
+detectRadius = 30.0
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )

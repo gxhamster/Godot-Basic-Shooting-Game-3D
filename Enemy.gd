@@ -12,7 +12,7 @@ export var accel := 4.0
 export var deaccel := 3.5
 export var detectRadius := 10.0
 export var viewAngle = 60.0
-export var on_collision_force := 2.5
+export var on_collision_force := 1.5
 export var health := 50.0 setget _health_changed
 
 var velocity := Vector3()
