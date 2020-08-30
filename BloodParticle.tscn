@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.568627, 0, 0, 1 )
+
+[sub_resource type="Curve" id=2]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, 200 ), 0.0, 0.0, 0, 0, Vector2( 1, -116.818 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0.00632912, 0.725 ), 0.0, 0.0, 0, 0, Vector2( 0.987342, 0.438636 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+angular_velocity = 82.76
+linear_accel = -20.69
+linear_accel_random = 0.79
+linear_accel_curve = SubResource( 3 )
+radial_accel = 11.5
+radial_accel_random = 0.84
+tangential_accel = -2.3
+tangential_accel_random = 0.66
+scale = 0.2
+scale_curve = SubResource( 5 )
+
+[sub_resource type="SphereMesh" id=7]
+
+[node name="BloodParticle" type="Particles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.909973, 2.37952, -3.01904 )
+material_override = SubResource( 1 )
+amount = 100
+explosiveness = 0.61
+visibility_aabb = AABB( -2.58167, -2.08056, -2.7845, 5.94947, 4.16113, 4.74477 )
+local_coords = false
+process_material = SubResource( 6 )
+draw_pass_1 = SubResource( 7 )

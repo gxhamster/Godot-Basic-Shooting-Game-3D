@@ -12,6 +12,7 @@ export var accel := 4.0
 export var deaccel := 3.5
 export var detectRadius := 10.0
 export var viewAngle = 60.0
+export var on_collision_force := 2.5
 
 var velocity := Vector3()
 var path := []
@@ -22,6 +23,7 @@ var mousePointIn3D : Vector3
 onready var debug := $Debug
 onready var spotLight := $SpotLight
 onready var nav := get_parent()
+onready var object_detect_ray := $ObjectDetect
 
 func _ready() -> void:
 	camera = get_node(camera)
@@ -56,15 +58,29 @@ func canSeePlayer(playerTransform: Transform) -> bool:
 func move(delta: float, targetPoint: Transform) -> void:
 	#	Rotate the player
 		look_at(targetPoint.origin, Vector3.UP)
-
+		
 		var targetVelocity := -transform.basis.z * speed
 	#	Smooth motion
 		velocity = velocity.linear_interpolate(targetVelocity, accel * delta)
 		if transform.origin.distance_to(targetPoint.origin) < 0.9:
 			velocity = velocity.linear_interpolate(Vector3(), deaccel * delta)
-
+		
 		velocity = velocity.linear_interpolate(Vector3(), deaccel * delta)
+		velocity += steer_away()
 		velocity = move_and_slide(velocity, FLOOR_NORMAL)
+
+
+func steer_away() -> Vector3:
+	if object_detect_ray.is_colliding():
+		var collision_normal = object_detect_ray.get_collision_normal()
+		var steering = collision_normal
+		steering = steering * on_collision_force
+		return steering
+	else:
+		return Vector3()	
+	
+
+
 
 # With navmesh implemented
 #func move(delta: float, targetPoint: Transform) -> void:
