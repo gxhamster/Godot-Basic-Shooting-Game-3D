@@ -46,6 +46,7 @@ extents = Vector3( 1, 17.3597, 37.9261 )
 [node name="Nav" type="Navigation" parent="."]
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Nav"]
+transform = Transform( 1, 0.000302599, -9.999e-05, -0.000302624, 1, -0.000195825, 9.99248e-05, 0.000195864, 1, 0, 0, 0 )
 navmesh = SubResource( 1 )
 
 [node name="Obstacles" type="Spatial" parent="Nav/NavigationMeshInstance"]
@@ -61,14 +62,6 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Nav/NavigationMeshInstance/Obstacles/StaticBody"]
 transform = Transform( 1.72953, 0, 0, 0, 3.24571, 0, 0, 0, 1.62065, 0, 2.02754, 0 )
 shape = SubResource( 4 )
-
-[node name="OmniLight" type="OmniLight" parent="Nav/NavigationMeshInstance/Obstacles/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.528139, 12.7735, -3.72432 )
-light_color = Color( 0.4, 0.94902, 0.6, 1 )
-light_energy = 0.82
-light_specular = 0.91
-omni_range = 26.2493
-omni_attenuation = 0.615572
 
 [node name="StaticBody2" type="StaticBody" parent="Nav/NavigationMeshInstance/Obstacles"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6922, -0.975235, 13.3634 )
@@ -393,4 +386,13 @@ transform = Transform( -0.432778, 0, -0.9015, 0, 1, 0, 0.9015, 0, -0.432778, -13
 transform = Transform( 0.473827, 0, 0.880618, 0, 1, 0, -0.880618, 0, 0.473827, -13.1823, 2.5646, -9.32895 )
 
 [node name="SpawnTimer" type="Timer" parent="EnemySpawnController"]
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0.000302605, -9.99841e-05, -0.000302624, 1, -0.000195834, 9.99248e-05, 0.000195864, 1, 0.532255, 12.7738, -2.50671 )
+light_color = Color( 0.94902, 0.709804, 0.4, 1 )
+light_energy = 1.39
+light_specular = 0.91
+omni_range = 40.9
+omni_attenuation = 0.784584
+omni_shadow_mode = 0
 [connection signal="timeout" from="EnemySpawnController/SpawnTimer" to="EnemySpawnController" method="_on_SpawnTimer_timeout"]
