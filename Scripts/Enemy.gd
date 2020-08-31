@@ -54,7 +54,7 @@ func canSeePlayer(playerTransform: Transform) -> bool:
 #		Cast a ray to see if any obstacle is blocking the view from the player
 		var space := get_world().get_direct_space_state()
 		var result := space.intersect_ray(global_transform.origin, rayCastPos.origin, [self], collision_mask)
-		if result.collider is Player:
+		if result != null and result.collider is Player:
 			spotLight.light_color = Color.red
 			return true
 		else:
