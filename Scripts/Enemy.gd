@@ -75,6 +75,9 @@ func move(delta: float, targetPoint: Transform) -> void:
 		
 		velocity = velocity.linear_interpolate(Vector3(), deaccel * delta)
 		velocity += steer_away()
+		
+		
+		
 		velocity = move_and_slide(velocity, FLOOR_NORMAL)
 
 

@@ -20,7 +20,9 @@ albedo_color = Color( 0.690196, 0.180392, 0.780392, 1 )
 radius = 0.899038
 height = 1.995
 
-[node name="Enemy" type="KinematicBody"]
+[node name="Enemy" type="KinematicBody" groups=[
+"enemy",
+]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.252442, 0 )
 collision_layer = 4
 collision_mask = 11

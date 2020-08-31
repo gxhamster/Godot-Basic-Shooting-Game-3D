@@ -4,7 +4,7 @@ extends Spatial
 
 export var spawn_rate := 2
 export(PackedScene) var enemy_scene
-
+export(int, 1, 15) var max_enemies_per_scene = 15
 
 var spawn_position_array := []
 var max_distance := 10.0
@@ -22,6 +22,10 @@ func _ready() -> void:
 
 
 func spawn_enemy() -> void:
+#	Dont spawn if no. of enemies exceed
+	if get_tree().get_nodes_in_group("enemy").size() >= max_enemies_per_scene:
+		return 
+		
 	var enemy_instance : KinematicBody = enemy_scene.instance()
 	var player_position : Vector3 = get_tree().get_nodes_in_group("player")[0].global_transform.origin 
 	var nearestSpawnToPlayerDist := 100000.0
@@ -39,6 +43,7 @@ func spawn_enemy() -> void:
 	if nearestSpawnToPlayerDist > max_distance:
 		return	
 	else:
+		
 		
 		add_child(enemy_instance)
 		

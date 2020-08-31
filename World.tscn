@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=1]
-[ext_resource path="res://GunController.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/GunController.tscn" type="PackedScene" id=2]
 [ext_resource path="res://default_env.tres" type="Environment" id=3]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/EnemySpawnController.gd" type="Script" id=5]
@@ -378,6 +378,7 @@ shape = SubResource( 7 )
 script = ExtResource( 5 )
 spawn_rate = 3
 enemy_scene = ExtResource( 1 )
+max_enemies_per_scene = 2
 
 [node name="SpawnPosition" type="Position3D" parent="EnemySpawnController"]
 transform = Transform( 0.931139, 0, -0.364666, 0, 1, 0, 0.364666, 0, 0.931139, -4.01941, 1.69575, 4.68529 )
