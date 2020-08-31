@@ -137,7 +137,6 @@ func die() -> void:
 	root_node.add_child(blood_particle_ins)
 	blood_particle_ins.global_transform.origin = transform.origin
 	blood_particle_ins.emitting = true
-#	yield(get_tree().create_timer(1.9), "timeout")
 	queue_free()
 
 func _health_changed(value: float) -> void:

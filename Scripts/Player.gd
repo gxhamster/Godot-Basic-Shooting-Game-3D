@@ -3,6 +3,7 @@ class_name Player
 
 export(NodePath) var camera
 
+
 const FLOOR_NORMAL := Vector3.UP
 
 export var speed := 30.0
@@ -12,8 +13,11 @@ export var deaccel = 4.3
 
 var velocity := Vector3()
 var mousePointIn3D: Vector3
+var current_camera : Camera
 
 onready var Gun := $Gun
+onready var player_camera := $PlayerCamera
+
 
 func _ready() -> void:
 	camera = get_node(camera)
@@ -21,12 +25,11 @@ func _ready() -> void:
 # Main physics frame
 func _physics_process(delta: float) -> void:
 	
+
 	var direction = get_input_direction()
 	
 	rotate_player(delta)
 	
-	if Input.is_action_pressed("shoot"):
-		Gun.shoot()
 	
 	var targetVelocity = direction * speed
 	velocity = velocity.linear_interpolate(targetVelocity, accel * delta)

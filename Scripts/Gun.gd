@@ -1,9 +1,9 @@
 extends Spatial
-
+class_name Gun
 
 #export(NodePath) var muzzle
 export(PackedScene) var projectile
-export(float, 0.0, 1.0) var timeBetweenShots = 0.2
+export(float, 0.0, 1.0) var timeBetweenShots := 0.2
 export var projectileSpeed := 5.0
 export var projectile_damage := 35.0
 

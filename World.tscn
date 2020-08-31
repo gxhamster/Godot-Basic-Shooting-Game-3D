@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Gun.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GunController.tscn" type="PackedScene" id=2]
 [ext_resource path="res://default_env.tres" type="Environment" id=3]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/EnemySpawnController.gd" type="Script" id=5]
@@ -323,7 +323,7 @@ use_collision = true
 mesh = SubResource( 6 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.999985, 0.00380191, 0.00406762, -0.00481971, 0.225326, 0.974272, 0.00278755, -0.974276, 0.225341, 0.253175, 38.8685, 11.0758 )
+transform = Transform( 0.999985, 0.0048599, 0.00271687, -0.00481971, 0.511275, 0.859404, 0.00278755, -0.859403, 0.511291, 0.20429, 35.2959, 22.4353 )
 fov = 66.021
 size = 44.6552
 
@@ -338,10 +338,7 @@ rotation_speed_factor = 10.0
 accel = 3.0
 deaccel = 2.0
 
-[node name="Gun" parent="Player" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0553079, 0.0250142, -1.98038 )
-timeBetweenShots = 0.355
-projectileSpeed = 100.0
+[node name="GunController" parent="Player" instance=ExtResource( 2 )]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.81823, 0.574891, 0, -0.574891, -0.81823, 0, 24.45, 17.2692 )

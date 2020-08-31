@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
-[sub_resource type="SpatialMaterial" id=7]
-albedo_color = Color( 0.996078, 0.25098, 0.25098, 1 )
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.815686, 0.0784314, 0.0784314, 1 )
 
 [sub_resource type="Curve" id=2]
 min_value = -200.0
@@ -34,11 +34,11 @@ damping = 11.49
 scale = 0.2
 scale_curve = SubResource( 5 )
 
-[sub_resource type="CubeMesh" id=8]
+[sub_resource type="CubeMesh" id=7]
 
 [node name="BloodParticle" type="Particles"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.909973, 2.37952, -3.01904 )
-material_override = SubResource( 7 )
+material_override = SubResource( 1 )
 emitting = false
 amount = 100
 lifetime = 2.0
@@ -48,4 +48,4 @@ randomness = 0.54
 visibility_aabb = AABB( -2.58167, -2.08056, -2.7845, 5.94947, 4.16113, 4.74477 )
 local_coords = false
 process_material = SubResource( 6 )
-draw_pass_1 = SubResource( 8 )
+draw_pass_1 = SubResource( 7 )

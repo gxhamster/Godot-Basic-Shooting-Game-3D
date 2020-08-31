@@ -1,5 +1,7 @@
 extends Spatial
 
+# Handles spawning of enemies in scene
+
 export var spawn_rate := 2
 export(PackedScene) var enemy_scene
 
@@ -22,7 +24,7 @@ func _ready() -> void:
 func spawn_enemy() -> void:
 	var enemy_instance : KinematicBody = enemy_scene.instance()
 	var player_position : Vector3 = get_tree().get_nodes_in_group("player")[0].global_transform.origin 
-	var nearestSpawnToPlayerDist := 100000
+	var nearestSpawnToPlayerDist := 100000.0
 	var nearestSpawnToPlayer := Transform()
 	
 
@@ -43,9 +45,5 @@ func spawn_enemy() -> void:
 		enemy_instance.global_transform = nearestSpawnToPlayer
 		
 		
-		
-
-
 func _on_SpawnTimer_timeout() -> void:
-	print("Time")
 	spawn_enemy()

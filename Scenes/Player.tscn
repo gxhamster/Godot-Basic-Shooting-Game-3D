@@ -2,7 +2,6 @@
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 
-
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.176471, 0.552941, 0.8, 1 )
 
@@ -40,3 +39,7 @@ width = 0.980108
 height = 0.352379
 depth = 0.310551
 material = SubResource( 4 )
+
+[node name="PlayerCamera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.944737, 0.327828, 0, -0.327828, 0.944737, 0, 3.17414, 3.95116 )
+fov = 75.5208

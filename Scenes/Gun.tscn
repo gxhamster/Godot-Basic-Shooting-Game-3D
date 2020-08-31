@@ -4,8 +4,6 @@
 [ext_resource path="res://Scripts/Gun.gd" type="Script" id=2]
 [ext_resource path="res://assets/Materials/gun_material.tres" type="Material" id=3]
 
-
-
 [node name="Gun" type="Spatial"]
 transform = Transform( 0.998605, 0.00124199, 0.0528428, -0.000585659, 0.999923, -0.0124342, -0.0528541, 0.0123858, 0.998528, 0.119661, -0.195339, -2.14906 )
 script = ExtResource( 2 )
