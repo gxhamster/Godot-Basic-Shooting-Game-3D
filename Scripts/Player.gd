@@ -3,7 +3,6 @@ class_name Player
 
 export(NodePath) var camera
 
-
 const FLOOR_NORMAL := Vector3.UP
 
 export var speed := 30.0

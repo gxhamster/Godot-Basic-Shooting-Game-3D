@@ -18,7 +18,14 @@ script = ExtResource( 2 )
 transform = Transform( 1, -1.05871e-12, 0, 9.83214e-13, 1, 0, 0, 3.63798e-12, 1, 0, 0, 0 )
 width = 0.237291
 height = 0.223308
-depth = 0.22605
+depth = 0.5256
+material = SubResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="."]
+transform = Transform( 1, -1.05604e-12, 0, 9.83214e-13, 1, 0, 0, 2.91038e-11, 1, -6.2937e-10, -1.22009e-09, -0.0777763 )
+width = 0.167316
+height = 0.178368
+depth = 0.5256
 material = SubResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
