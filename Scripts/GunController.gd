@@ -5,28 +5,33 @@ extends Node
 export(PackedScene) var starting_gun 
 export(Array, PackedScene) var guns := []
 
-var guns_index := 0
+var guns_index := 0 
 var current_gun
 
 var equipped_gun  
 
 func _ready() -> void:
 	if starting_gun != null:
-		current_gun = starting_gun
-#		change_gun()
+		change_gun(starting_gun)
 	
 
 func _process(delta: float) -> void:
 	if guns.size() > 1:
 		if Input.is_action_just_pressed("changed_gun"):
-			change_gun()
+			cycle_guns()
 	
 	if Input.is_action_pressed("shoot") and equipped_gun != null:
 		equipped_gun.shoot()
 
-func change_gun() -> void:
+	
+func cycle_guns() -> void:
 	guns_index = (guns_index + 1) % guns.size()
-	current_gun = guns[guns_index]
+	change_gun(guns[guns_index])	
+	
+	
+# Equip gun
+func change_gun(_gun: PackedScene) -> void:
+	current_gun = _gun
 	print(current_gun)
 	print(guns_index)
 	
@@ -38,4 +43,3 @@ func change_gun() -> void:
 	equipped_gun = gun_instance
 	self.add_child(gun_instance)
 	# gun_instance.global_transform.origin = Vector3.ZERO
-
