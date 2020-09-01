@@ -5,6 +5,7 @@
 [node name="Rifle" instance=ExtResource( 1 )]
 timeBetweenShots = 0.092
 projectileSpeed = 50.0
+bullets_per_magazine = 3
 
 [node name="CSGBox" parent="." index="0"]
 transform = Transform( 1, 5.82077e-11, 0, -2.32831e-10, 1, 0, 3.72529e-09, -2.79397e-09, 1, 0.0671471, 0.660893, -1.5804 )

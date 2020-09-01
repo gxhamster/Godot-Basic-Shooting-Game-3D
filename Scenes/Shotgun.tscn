@@ -54,6 +54,13 @@ height = 0.464758
 depth = 0.611691
 material = ExtResource( 2 )
 
+[node name="CSGBox7" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.99996, 0.0089528, 0, -0.0089528, -0.99996, 6.67572e-06, -0.267403, -2.4049 )
+width = 0.255481
+height = 0.0403709
+depth = 0.771088
+material = ExtResource( 2 )
+
 [node name="Muzzle" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.104052, -3.10522 )
 
