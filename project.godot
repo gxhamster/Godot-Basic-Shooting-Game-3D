@@ -43,6 +43,7 @@ config/description="My 3D game. Only for real gamers.
 Btw this is me trying to learn 3D"
 run/main_scene="res://World.tscn"
 config/icon="res://game_icon.png"
+config/windows_native_icon="res://game_icon.png"
 
 [input]
 
