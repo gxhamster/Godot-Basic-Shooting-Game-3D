@@ -27,6 +27,7 @@ onready var spotLight := $SpotLight
 onready var nav := get_parent()
 onready var object_detect_ray := $ObjectDetect
 onready var projectile_detector := $ProjectileDetector
+onready var gun_controller := $GunControllerEnemy
 
 var blood_particle := preload("res://Scenes/BloodParticle.tscn")
 
@@ -55,6 +56,9 @@ func canSeePlayer(playerTransform: Transform) -> bool:
 		var space := get_world().get_direct_space_state()
 		var result := space.intersect_ray(global_transform.origin, rayCastPos.origin, [self], collision_mask)
 		if result != null and result.collider is Player:
+			
+#			Shoot when player si in view radius
+			gun_controller.equipped_gun.shoot()
 			spotLight.light_color = Color.red
 			return true
 		else:

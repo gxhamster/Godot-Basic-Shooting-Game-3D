@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/GunControllerEnemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Shotgun.tscn" type="PackedScene" id=3]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 1, 0.219608, 0.219608, 1 )
@@ -69,4 +71,7 @@ collision_mask = 10
 [node name="CollisionShape" type="CollisionShape" parent="ProjectileDetector"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0 )
 shape = SubResource( 5 )
+
+[node name="GunControllerEnemy" parent="." instance=ExtResource( 2 )]
+starting_gun = ExtResource( 3 )
 [connection signal="area_entered" from="ProjectileDetector" to="." method="_on_ProjectileDetector_area_entered"]

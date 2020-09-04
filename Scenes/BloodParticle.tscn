@@ -1,4 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/BloodParticle.gd" type="Script" id=1]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.815686, 0.0784314, 0.0784314, 1 )
@@ -49,3 +51,4 @@ visibility_aabb = AABB( -2.58167, -2.08056, -2.7845, 5.94947, 4.16113, 4.74477 )
 local_coords = false
 process_material = SubResource( 6 )
 draw_pass_1 = SubResource( 7 )
+script = ExtResource( 1 )

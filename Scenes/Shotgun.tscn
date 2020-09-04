@@ -11,6 +11,7 @@ projectile = ExtResource( 3 )
 timeBetweenShots = 0.388
 projectileSpeed = 40.0
 projectile_damage = 50.0
+bullets_per_magazine = 1000
 
 [node name="CSGBox" type="CSGBox" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.80388 )

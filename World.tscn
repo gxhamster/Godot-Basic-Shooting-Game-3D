@@ -279,7 +279,7 @@ transform = Transform( 1, 0, 0, 0, 1.9824, 0, 0, 0, 1, -0.927198, 1.45131, 20.37
 collision_mask = 6
 
 [node name="MeshInstance" type="MeshInstance" parent="Nav/NavigationMeshInstance/Obstacles/StaticBody18"]
-transform = Transform( 1.72953, 0, 0, 0, 3.24571, 0, 0, 0, 1.62065, 0, 2.02754, 0 )
+transform = Transform( 1.72953, -2.40021e-11, 0, 1.9547e-11, 3.24571, 2.91038e-11, 0, 0, 1.62065, -0.0350977, 2.02754, 0.030138 )
 mesh = SubResource( 3 )
 material/0 = null
 
@@ -319,7 +319,7 @@ use_collision = true
 mesh = SubResource( 6 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.999985, 0.0048599, 0.00271687, -0.00481971, 0.511275, 0.859404, 0.00278755, -0.859403, 0.511291, 0.20429, 35.2959, 22.4353 )
+transform = Transform( 0.756771, -0.56137, 0.334906, 0.00156186, 0.51389, 0.857855, -0.653678, -0.648676, 0.389774, 16.7537, 27.9385, 19.9746 )
 size = 44.6552
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

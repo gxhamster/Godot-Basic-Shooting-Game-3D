@@ -18,6 +18,8 @@ func _ready() -> void:
 	shotTimer.wait_time = timeBetweenShots 
 	bullet_amount = bullets_per_magazine
 
+
+
 func shoot() -> void:
 	muzzlePosition = muzzle.global_transform
 	

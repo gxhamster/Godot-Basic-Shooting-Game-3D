@@ -3,6 +3,9 @@ class_name Projectile
 
 var speed : float
 var damage : float
+var deviation : float
+
+var velocity = Vector3()
 
 func _ready() -> void:
 	set_as_toplevel(true)
@@ -13,7 +16,10 @@ func initialize(_speed: float, _damage: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	transform = transform.translated(Vector3.FORWARD * speed * delta ) 
+	velocity = Vector3.FORWARD * speed * delta
+	velocity.x += rand_range(-1, 1) * deviation
+	
+	transform = transform.translated(velocity) 
 
 
 
