@@ -27,7 +27,9 @@ func spawn_enemy() -> void:
 		return 
 		
 	var enemy_instance : KinematicBody = enemy_scene.instance()
-	var player_position : Vector3 = get_tree().get_nodes_in_group("player")[0].global_transform.origin 
+	var player_position : Vector3
+	if get_tree().get_nodes_in_group("player"):
+		player_position = get_tree().get_nodes_in_group("player")[0].global_transform.origin 
 	var nearestSpawnToPlayerDist := 100000.0
 	var nearestSpawnToPlayer := Transform()
 	

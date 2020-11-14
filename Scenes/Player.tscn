@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 
@@ -15,6 +15,10 @@ points = PoolVector3Array( 0, 0, 1.9, 0, 0, 1.9, 0, 0, 1.9, 0, 0, 1.9, 0, 0, 1.9
 
 [sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.94902, 0, 0, 1 )
+
+[sub_resource type="CapsuleShape" id=5]
+radius = 0.794996
+height = 2.19716
 
 [node name="Player" type="KinematicBody" groups=[
 "player",
@@ -43,3 +47,10 @@ material = SubResource( 4 )
 [node name="PlayerCamera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.944737, 0.327828, 0, -0.327828, 0.944737, 0, 3.17414, 3.95116 )
 fov = 75.5208
+
+[node name="ProjectileDetector" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="ProjectileDetector"]
+transform = Transform( 1, 0, 0, 0, -0.0480828, -0.998843, 0, 0.998843, -0.0480828, 0, 0, 0 )
+shape = SubResource( 5 )
+[connection signal="area_entered" from="ProjectileDetector" to="." method="_on_ProjectileDetector_area_entered"]

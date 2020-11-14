@@ -4,3 +4,4 @@
 * Map Improvements (Maybe Random Obstacle Placment)
 * More variety of guns
 * Use navmesh for enemies 
+* Better enemy behaviour

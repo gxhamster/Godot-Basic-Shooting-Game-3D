@@ -1,6 +1,6 @@
 extends Node
 
-# Handles equipping of guns to player (This does not defines the gun)
+# Handles equipping of guns to player (This does not define the gun)
 
 export(PackedScene) var starting_gun 
 export(Array, PackedScene) var guns := []

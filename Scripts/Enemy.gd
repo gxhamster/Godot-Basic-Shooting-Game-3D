@@ -21,6 +21,7 @@ var path_index := 0
 
 var mousePointIn3D : Vector3
 var detected_color := Color(231, 34, 34)
+var playerLastKnowPosition : Transform
 
 onready var debug := $Debug
 onready var spotLight := $SpotLight
@@ -38,17 +39,25 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 #	Player transform
 	var targetPoint : Transform
-	targetPoint = get_tree().get_nodes_in_group('player')[0].transform	
+	# Tis to make sure to check whether player exists
+	if get_tree().get_nodes_in_group('player'):
+		targetPoint = get_tree().get_nodes_in_group('player')[0].transform	
 	
 	if canSeePlayer(targetPoint):
 		move(delta, targetPoint)
+		playerLastKnowPosition = targetPoint
+# If cannot see player enable patrol behaviour
+	else:
+		patrol(delta)
 	
 # Detect the player
 func canSeePlayer(playerTransform: Transform) -> bool:
 	var enemyFoward : Vector3 = -transform.basis.z
 	var playerToEnemy : Vector3 = (playerTransform.origin - transform.origin).normalized() 	
 	var playerToEnemyDist : float = playerTransform.origin.distance_to(transform.origin)
-	var rayCastPos : Transform = get_tree().get_nodes_in_group('player')[0].global_transform
+	var rayCastPos : Transform
+	if get_tree().get_nodes_in_group('player'):
+		rayCastPos = get_tree().get_nodes_in_group('player')[0].global_transform
 		
 #	Enemy view radius 
 	if enemyFoward.angle_to(playerToEnemy) < deg2rad(viewAngle) and playerToEnemyDist < detectRadius:
@@ -57,13 +66,13 @@ func canSeePlayer(playerTransform: Transform) -> bool:
 		var result := space.intersect_ray(global_transform.origin, rayCastPos.origin, [self], collision_mask)
 		if result != null and result.collider is Player:
 			
-#			Shoot when player si in view radius
+#			Shoot when player is in view radius
 			gun_controller.equipped_gun.shoot()
 			spotLight.light_color = Color.red
 			return true
 		else:
 			spotLight.light_color = Color.white
-		
+	
 	return false
 		
 # Main movement code (Dumb)
@@ -92,9 +101,13 @@ func steer_away() -> Vector3:
 		steering = steering * on_collision_force
 		return steering
 	else:
-		return Vector3()	
-	
+		return Vector3()
 
+
+# Patrolling behaviour
+func patrol(delta: float) -> void:
+	pass
+	
 
 
 # With navmesh implemented

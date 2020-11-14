@@ -9,6 +9,9 @@ export var speed := 30.0
 export var rotation_speed_factor := 3.0
 export var accel := 4.5
 export var deaccel = 4.3
+export var health := 100.0 setget _player_health_changed
+
+var blood_particle := preload("res://Scenes/BloodParticle.tscn")
 
 var velocity := Vector3()
 var mousePointIn3D: Vector3
@@ -28,8 +31,7 @@ func _physics_process(delta: float) -> void:
 	var direction = get_input_direction()
 	
 	rotate_player(delta)
-	
-	
+
 	var targetVelocity = direction * speed
 	velocity = velocity.linear_interpolate(targetVelocity, accel * delta)
 	velocity = velocity.linear_interpolate(Vector3(), deaccel * delta)
@@ -62,3 +64,21 @@ func rotate_player(delta: float) -> void:
 	var target_direction: = transform.looking_at(heightCorrectedPoint, Vector3.UP)
 # Smooths rotation of player
 	transform = transform.interpolate_with(target_direction, rotation_speed_factor * delta)	
+
+func _player_health_changed(value: float):
+	health = value
+	if health <= 0:
+		die()
+		
+func die() -> void:
+	var blood_particle_ins = blood_particle.instance()
+	var root_node = get_tree().get_root()
+	root_node.add_child(blood_particle_ins)
+	blood_particle_ins.global_transform.origin = transform.origin
+	blood_particle_ins.emitting = true
+	queue_free()
+
+
+func _on_ProjectileDetector_area_entered(area: Area) -> void:
+	if area is Projectile:
+		self.health -= area.damage
